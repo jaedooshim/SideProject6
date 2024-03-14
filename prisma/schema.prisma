@@ -9,3 +9,22 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum platform {
+  KAKAO
+  GOOGLE
+  NAVER
+}
+
+model Member {
+  id           String    @id @default(uuid())
+  socialId     String    @map("social_id")
+  email        String?   @db.VarChar()
+  nickname     String?   @db.VarChar()
+  phoneNumber  String?   @map("phone_number") @db.VarChar()
+  profileImage String?   @map("profile_image") @db.VarChar()
+  platform     platform
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime? @updatedAt @map("updated_at")
+  deletedAt    DateTime? @map("deleted_at")
+}
