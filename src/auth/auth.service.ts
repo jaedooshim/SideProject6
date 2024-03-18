@@ -23,19 +23,4 @@ export class AuthService {
       return accessToken;
     }
   }
-
-  /* 트랜잭션  */
-  // async oAuthLogin(data: IOAuth): Promise<string> {
-  //   return this.prismaService.$transaction(async (prisma) => {
-  //     const member = await this.memberService.findFirstBySocialId(data.id, prisma);
-  //     if (!member) {
-  //       const createMember = await this.memberService.create(data, prisma);
-  //       const accessToken = await this.jwtService.sign(createMember);
-  //       return accessToken;
-  //     } else {
-  //       const accessToken = await this.jwtService.sign(member);
-  //       return accessToken;
-  //     }
-  //   });
-  // }
 }
